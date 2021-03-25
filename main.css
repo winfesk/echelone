@@ -18,6 +18,13 @@ header {
     display: inline-block;
 }
 
+div {
+    margin: 0 24px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
 a {
     padding: 8px;
 
@@ -26,13 +33,6 @@ a {
 a.scan {
     letter-spacing: 0.1em;
     margin-left: 48px;
-}
-
-div {
-    margin: 0 24px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
 }
 
 a.red {
