@@ -1,0 +1,47 @@
+label {
+  display: block;
+  color: #878787;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+input, textarea {
+  width: 400px;
+  border-radius: none;
+  border: solid 1px #C5CBCF;
+  display: block;
+  margin-bottom: 12px;
+  font-family: 'Open Sans';
+  /* color: #878787; */
+}
+
+input {
+  height: 32px;
+  color: #212121;
+}
+
+.import-text {
+  font-size: 14px;
+  color: #878787;
+  display: inline-block;
+}
+
+button {
+  font-size: 14px;
+  /* padding: 6px 25px; */
+  font-family: Open Sans;
+}
+
+button.save {
+  background-color: #212121;
+  color: white;
+  padding: 7px 25px;
+  border: none;
+}
+
+button.start {
+  margin-left: 24px;
+  border: 1px solid #C62828;
+  padding: 6px 24px;
+  background-color: white;
+}

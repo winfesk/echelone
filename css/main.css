@@ -8,15 +8,12 @@ body {
 }
 .main-block {
     background-color: #FFF;
-    height: 300px;
-    /* width: 300px; */
     display: block;
     margin-left: 72px;
 }
 
 .sub-menu {
     background-color: #EAEAEA;
-    height: 41px;
     display: flex;
     align-items: center;
     padding-left: 30px;
@@ -32,11 +29,20 @@ body {
     color: #878787;
     font-size: 14px;
     margin: 0;
-    padding-left: 3px;
-    /* margin-bottom: 10px; */
-    display: inline-block;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding: 0px 24px;
 }
 
+.text.first {
+    padding-left: 9px;
+}
+
+.text.active {
+  background-color: white;
+  color: #212121;
+}
 
 .type-of-task {
   display: flex;

@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/header.css" />
     <link rel="stylesheet" href="css/sidebar.css" />
+    <link rel="stylesheet" href="css/web-investigation-general.css" />
+    <link rel="stylesheet" href="css/switch.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
       rel="stylesheet"
@@ -21,7 +23,7 @@
       <div class="header-left">
         <img src="img/logo_skanner.png" class="main-logo" alt="scan-logo" />
         <a href="#" class="header-scan">Сканирование</a>
-        <a href="#" class="header-red-button">Задачи</a>
+        <a href="index.html" class="header-red-button">Задачи</a>
         <a href="#">Расписание</a>
       </div>
       <div class="header-right">
@@ -42,14 +44,15 @@
     </div>
     <div class="main-block">
       <div class="sub-menu">
-        <a>
-          <img src="img/arrow.png" alt="left-sided arrow" />
-          <div class="text">Задачи</div>
-        </a>
+        <img src="img/arrow.png" alt="left-sided arrow" />
+        <div class="text first">Задачи</div>
       </div>
       <p class="title out content-padding">Новая задача</p>
       <div class="flex-grid content-padding">
-        <a href="tasks-web-analysis-general.html" class="type-of-task">
+        <a
+          href="tasks-web-analysis-general.html"
+          class="type-of-task web_investigation"
+        >
           <img src="img/type-of-task-1.png" />
           <p class="title">Исследование сети</p>
           <p class="description">
@@ -89,5 +92,105 @@
         </a>
       </div>
     </div>
+
+    <div class="main-block" id="other-page">
+      <div class="sub-menu">
+        <img src="img/arrow.png" alt="left-sided arrow" />
+        <div class="text first">Тип задачи</div>
+        <div class="text active">Общие</div>
+        <div class="text">Расширенные</div>
+        <div class="text">Расписание</div>
+        <div class="text">Уведомления</div>
+        <div class="text">Отчет</div>
+      </div>
+      <div class="content-padding">
+        <p class="title out">Исследование сети</p>
+        <label for="task-input">Задача</label>
+        <input type="text" name="task" id="task-input" placeholder=" Text" />
+        <label>Цели</label>
+        <textarea
+          rows="5"
+          placeholder="192.168.1.0/24,\n192.168.1.100"
+        ></textarea>
+
+        <div style="display: flex; align-items: center; margin-top: 15px;">
+          <img src="img/import_icon.png" />
+          <div class="import-text" style="margin-left: 25px;">
+            Импорт из файла
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; margin-top: 30px;">
+          <label class="switch">
+            <input type="checkbox" />
+            <span class="slider round"></span>
+          </label>
+          <div class="switch-text">Обнаружение хостов</div>
+        </div>
+        <div style="display: flex; align-items: center; margin-top: 16px;">
+          <label class="switch">
+            <input type="checkbox" />
+            <span class="slider round"></span>
+          </label>
+          <div class="switch-text">Сканирование портов</div>
+        </div>
+        <div style="display: flex; align-items: center; margin-top: 16px;">
+          <label class="switch">
+            <input type="checkbox" />
+            <span class="slider round"></span>
+          </label>
+          <div class="switch-text">Определение сервисов</div>
+        </div>
+        <div style="display: flex; align-items: center; margin-top: 16px;">
+          <label class="switch">
+            <input type="checkbox" />
+            <span class="slider round"></span>
+          </label>
+          <div class="switch-text">Определение типа ОС и типа устройства</div>
+        </div>
+        <div style="display: flex; align-items: center; margin-top: 16px;">
+          <label class="switch">
+            <input type="checkbox" />
+            <span class="slider round"></span>
+          </label>
+          <div class="switch-text">Трассировка для топологии</div>
+        </div>
+        <div style="margin-top: 40px;">
+          <button class="save">Сохранить</button>
+          <button class="start">Запустить</button>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      console.log("what has led you up there...");
+
+      const placeholer =
+        "192.168.1.0/24,\n192.168.1.100,\n192.168.1.1-100,\n192.168.1.100-192.168.1.200,\n#метка";
+      document
+        .querySelector("textarea")
+        .setAttribute("placeholder", placeholer);
+
+      let hasContent = true;
+      const content = document.querySelector(".main-block");
+      const other = document.getElementById("other-page");
+      other.remove();
+
+      document
+        .querySelector(".web_investigation")
+        .addEventListener("click", (event) => {
+          event.preventDefault();
+          content.remove();
+          // other.remove()
+          if (hasContent) {
+            document.body.appendChild(other);
+            // history.pushState({}, '', 'tasks');
+            hasContent = false;
+          } else {
+            document.body.appendChild(content);
+            // history.pushState({}, '', '/');
+            hasContent = true;
+          }
+        });
+    </script>
   </body>
 </html>
