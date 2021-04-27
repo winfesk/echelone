@@ -5,7 +5,7 @@ label {
   margin-bottom: 4px;
 }
 
-input, textarea {
+#task-input, textarea, .port-input   {
   width: 400px;
   border-radius: none;
   border: solid 1px #C5CBCF;
@@ -15,9 +15,19 @@ input, textarea {
   /* color: #878787; */
 }
 
-input {
+#task-input, .port-input  {
   height: 32px;
   color: #212121;
+}
+
+.port-input {
+  width: 188px;
+  margin-right: 24px;
+}
+
+.ports {
+  display: inline-block;
+  margin-top: 25px;
 }
 
 .import-text {
@@ -44,4 +54,14 @@ button.start {
   border: 1px solid #C62828;
   padding: 6px 24px;
   background-color: white;
+}
+
+input.checkbox:checked {
+  display: inline-block;
+  background-color: red;
+}
+
+label.next-to-checkbox {
+  display: inline-block;
+  color: #212121;
 }

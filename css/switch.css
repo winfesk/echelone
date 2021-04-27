@@ -7,7 +7,7 @@
 }
 
 /* Hide default HTML checkbox */
-.switch input {
+.switch .toggle {
   opacity: 0;
   width: 0;
   height: 0;
@@ -36,15 +36,15 @@
   transition: .2s;
 }
 
-input:checked + .slider {
+.toggle:checked + .slider {
   background-color: #C62828;
 }
 
-input:focus + .slider {
+.toggle:focus + .slider {
   box-shadow: 0 0 1px #C62828;
 }
 
-input:checked + .slider:before {
+.toggle:checked + .slider:before {
   transform: translateX(10px);
 }
 

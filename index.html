@@ -97,8 +97,8 @@
       <div class="sub-menu">
         <img src="img/arrow.png" alt="left-sided arrow" />
         <div class="text first">Тип задачи</div>
-        <div class="text active">Общие</div>
-        <div class="text">Расширенные</div>
+        <div class="text general active">Общие</div>
+        <div class="text expanded">Расширенные</div>
         <div class="text">Расписание</div>
         <div class="text">Уведомления</div>
         <div class="text">Отчет</div>
@@ -121,38 +121,78 @@
         </div>
         <div style="display: flex; align-items: center; margin-top: 30px;">
           <label class="switch">
-            <input type="checkbox" />
+            <input class="toggle" type="checkbox" />
             <span class="slider round"></span>
           </label>
           <div class="switch-text">Обнаружение хостов</div>
         </div>
         <div style="display: flex; align-items: center; margin-top: 16px;">
           <label class="switch">
-            <input type="checkbox" />
+            <input class="toggle" type="checkbox" />
             <span class="slider round"></span>
           </label>
           <div class="switch-text">Сканирование портов</div>
         </div>
         <div style="display: flex; align-items: center; margin-top: 16px;">
           <label class="switch">
-            <input type="checkbox" />
+            <input class="toggle" type="checkbox" />
             <span class="slider round"></span>
           </label>
           <div class="switch-text">Определение сервисов</div>
         </div>
         <div style="display: flex; align-items: center; margin-top: 16px;">
           <label class="switch">
-            <input type="checkbox" />
+            <input class="toggle" type="checkbox" />
             <span class="slider round"></span>
           </label>
           <div class="switch-text">Определение типа ОС и типа устройства</div>
         </div>
         <div style="display: flex; align-items: center; margin-top: 16px;">
           <label class="switch">
-            <input type="checkbox" />
+            <input class="toggle" type="checkbox" />
             <span class="slider round"></span>
           </label>
           <div class="switch-text">Трассировка для топологии</div>
+        </div>
+        <div style="margin-top: 40px;">
+          <button class="save">Сохранить</button>
+          <button class="start">Запустить</button>
+        </div>
+      </div>
+    </div>
+    <div class="main-block" id="third-page">
+      <div class="sub-menu">
+        <img src="img/arrow.png" alt="left-sided arrow" />
+        <div class="text first">Тип задачи</div>
+        <div class="text general">Общие</div>
+        <div class="text expanded active">Расширенные</div>
+        <div class="text">Расписание</div>
+        <div class="text">Уведомления</div>
+        <div class="text">Отчет</div>
+      </div>
+      <div class="content-padding">
+        <p class="title out">Исследование сети</p>
+
+        <label>Список портов</label>
+        <div class="type-of-ports">
+          <input class="checkbox" type="radio" name="ports" id="popular-ports">
+          <label for="popular-ports" class="next-to-checkbox">Популярные ТСР-порты</label>
+        </div>
+        <div class="type-of-ports">
+          <input class="checkbox" type="radio" name="ports" id="all-ports">
+          <label for="all-ports" class="next-to-checkbox">Все ТСР-порты</label>
+        </div>
+        <div class="type-of-ports">
+          <input class="checkbox" type="radio" name="ports" id="particular-ports">
+          <label for="particular-ports" class="next-to-checkbox">Конкретные порты</label>
+        </div>
+        <div class="ports">
+          <label for="tcp-port">TCP-порты</label>
+          <input type="text" id="tcp-port" class="port-input" placeholder="22, 901-904">
+        </div>
+        <div class="ports">
+          <label for="udp-port">UDP-порты</label>
+          <input type="text" id="udp-port" class="port-input" placeholder="22, 130-132">
         </div>
         <div style="margin-top: 40px;">
           <button class="save">Сохранить</button>
@@ -173,24 +213,42 @@
       let hasContent = true;
       const content = document.querySelector(".main-block");
       const other = document.getElementById("other-page");
+      const third = document.getElementById("third-page");
       other.remove();
+      third.remove();
 
-      document
-        .querySelector(".web_investigation")
-        .addEventListener("click", (event) => {
-          event.preventDefault();
-          content.remove();
-          // other.remove()
-          if (hasContent) {
-            document.body.appendChild(other);
-            // history.pushState({}, '', 'tasks');
-            hasContent = false;
-          } else {
-            document.body.appendChild(content);
-            // history.pushState({}, '', '/');
-            hasContent = true;
-          }
-        });
+      document.querySelector(".web_investigation").addEventListener("click", (event) => {
+        event.preventDefault();
+        content.remove();
+        third.remove();
+        // other.remove()
+        if (hasContent) {
+          document.body.appendChild(other);
+          // history.pushState({}, '', 'tasks');
+          hasContent = false;
+        } else {
+          document.body.appendChild(content);
+          // history.pushState({}, '', '/');
+          hasContent = true;
+        }
+      });
+
+      document.querySelector(".text").addEventListener("click", (event) => {
+        console.log("Oh hi");
+        event.preventDefault();
+        content.remove();
+        other.remove();
+        // other.remove()
+        if (hasContent) {
+          document.body.appendChild(third);
+          // history.pushState({}, '', 'tasks');
+          hasContent = false;
+        } else {
+          document.body.appendChild(content);
+          // history.pushState({}, '', '/');
+          hasContent = true;
+        }
+      });
     </script>
   </body>
 </html>
